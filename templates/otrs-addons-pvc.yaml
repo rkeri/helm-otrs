@@ -3,12 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: otrs-claim3
-  name: otrs-claim3
+    io.kompose.service: otrs-addonsClaim
+  name: otrs-addonsClaim
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
+      storage: {{ .Values.addonsClaim }}
 status: {}

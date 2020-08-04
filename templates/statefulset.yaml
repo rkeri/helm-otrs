@@ -19,7 +19,6 @@
     template:
       metadata:
         annotations:
-          kompose.cmd: kompose convert -f supercompose.yml -o supermanifest.yaml
           kompose.version: 1.21.0 (992df58d8)
         creationTimestamp: null
         labels:
@@ -228,19 +227,19 @@
         volumes:
         - name: otrs-Kernel
           persistentVolumeClaim:
-            claimName: otrs-claim0
+            claimName: otrs-KernelClaim
         - name: otrs-skins
           persistentVolumeClaim:
-            claimName: otrs-claim1
+            claimName: otrs-skinsClaim
         - name: otrs-backups
           persistentVolumeClaim:
-            claimName: otrs-claim2
+            claimName: otrs-backupsClaim
         - name: otrs-addons
           persistentVolumeClaim:
-            claimName: otrs-claim3
+            claimName: otrs-addonsClaim
         - name: otrs-db_upgrade
           persistentVolumeClaim:
-            claimName: otrs-claim4
+            claimName: otrs-db_upgradeClaim
         # - name: otrs-hostpath0
         #   hostPath:
         #     path: /etc/localtime

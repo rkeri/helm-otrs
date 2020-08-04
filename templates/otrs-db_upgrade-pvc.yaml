@@ -3,12 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: otrs-claim4
-  name: otrs-claim4
+    io.kompose.service: otrs-db_upgradeClaim
+  name: otrs-db_upgradeClaim
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
+      storage: {{ .Values.db_upgradeClaim }}
 status: {}

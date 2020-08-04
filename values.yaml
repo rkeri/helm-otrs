@@ -128,3 +128,22 @@ otrsUpgradeXmlFiles: no
 
 # Password of the SMTP user.
 # otrsSmtpPassword:
+
+#####################################
+# Volume Claim properties
+#####################################
+
+#Kernel volume claim size
+KernelStorage: 1Gi
+
+#Skins volume claim size
+skinsClaim: 100Mi
+
+#Backup volume claim size
+backupsClaim: 10Gi
+
+#Addons volume claim size
+addonsClaim: 100Mi
+
+#DB upgrade volume claim size
+db_upgradeClaim: 100Mi
