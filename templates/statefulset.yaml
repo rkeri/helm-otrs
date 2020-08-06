@@ -1,32 +1,32 @@
-- apiVersion: apps/v1
-  kind: StatefulSet
-  metadata:
-    annotations:
-      kompose.version: 1.21.0 (992df58d8)
-    creationTimestamp: null
-    labels:
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations:
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: otrs
+  name: otrs
+spec:
+  # replicas: 1
+  selector:
+    matchLabels:
       io.kompose.service: otrs
-    name: otrs
-  spec:
-    # replicas: 1
-    selector:
-      matchLabels:
+  serviceName: "otrs"
+  replicas: 1
+  # strategy:
+  #   type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
         io.kompose.service: otrs
-    serviceName: "otrs"
-    replicas: 1
-    # strategy:
-    #   type: Recreate
-    template:
-      metadata:
-        annotations:
-          kompose.version: 1.21.0 (992df58d8)
-        creationTimestamp: null
-        labels:
-          io.kompose.service: otrs
-      spec:
-        containers:
-        - name: otrs
-          env:
+    spec:
+      containers:
+      - name: otrs
+        env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             configMapKeyRef:
@@ -202,51 +202,51 @@
             configMapKeyRef:
               key: TZ
               name: env
-          image: juanluisbaptiste/otrs:6.0.28
-          imagePullPolicy: ""
-          ports:
-          - containerPort: 80
-          resources: {}
-          volumeMounts:
-          - mountPath: /opt/otrs/Kernel
-            name: otrs-Kernel
-            subPath: Kernel
-          - mountPath: /opt/otrs/var/httpd/htdocs/skins/
-            name: otrs-skins
-          - mountPath: /var/otrs/backups
-            name: otrs-backups
-          - mountPath: /opt/otrs/addons
-            name: otrs-addons
-          - mountPath: /opt/otrs/db_upgrade
-            name: otrs-db_upgrade
-          # - mountPath: /etc/localtime
-          #   name: otrs-hostpath0
-          #   readOnly: true
-        restartPolicy: Always
-        serviceAccountName: ""
-        volumes:
-        - name: otrs-Kernel
-          persistentVolumeClaim:
-            claimName: otrs-KernelClaim
-        - name: otrs-skins
-          persistentVolumeClaim:
-            claimName: otrs-skinsClaim
-        - name: otrs-backups
-          persistentVolumeClaim:
-            claimName: otrs-backupsClaim
-        - name: otrs-addons
-          persistentVolumeClaim:
-            claimName: otrs-addonsClaim
-        - name: otrs-db_upgrade
-          persistentVolumeClaim:
-            claimName: otrs-db_upgradeClaim
-        # - name: otrs-hostpath0
-        #   hostPath:
-        #     path: /etc/localtime
-        #     type: File
-        # - hostPath:
-        #     path: /etc/localtime
-        #     type: File
+        image: juanluisbaptiste/otrs:6.0.28
+        imagePullPolicy: ""
+        ports:
+        - containerPort: 80
+        resources: {}
+        volumeMounts:
+        - mountPath: /opt/otrs/Kernel
+          name: otrs-Kernel
+          subPath: Kernel
+        - mountPath: /opt/otrs/var/httpd/htdocs/skins/
+          name: otrs-skins
+        - mountPath: /var/otrs/backups
+          name: otrs-backups
+        - mountPath: /opt/otrs/addons
+          name: otrs-addons
+        - mountPath: /opt/otrs/db_upgrade
+          name: otrs-db_upgrade
+        # - mountPath: /etc/localtime
         #   name: otrs-hostpath0
-  status:
-    replicas: 1
+        #   readOnly: true
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes:
+      - name: otrs-Kernel
+        persistentVolumeClaim:
+          claimName: otrs-KernelClaim
+      - name: otrs-skins
+        persistentVolumeClaim:
+          claimName: otrs-skinsClaim
+      - name: otrs-backups
+        persistentVolumeClaim:
+          claimName: otrs-backupsClaim
+      - name: otrs-addons
+        persistentVolumeClaim:
+          claimName: otrs-addonsClaim
+      - name: otrs-db_upgrade
+        persistentVolumeClaim:
+          claimName: otrs-db_upgradeClaim
+      # - name: otrs-hostpath0
+      #   hostPath:
+      #     path: /etc/localtime
+      #     type: File
+      # - hostPath:
+      #     path: /etc/localtime
+      #     type: File
+      #   name: otrs-hostpath0
+status:
+  replicas: 1

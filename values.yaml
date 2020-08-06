@@ -9,7 +9,7 @@ otrsDbName: otrs
 otrsDbHost: mariadb
 
 # Port of the database server. Default is 3306.
-otrsDbPort: 3306
+otrsDbPort: "3306"
 
 # Database user. Default is otrs.
 otrsDbUser: otrs
@@ -24,7 +24,7 @@ mysqlRootUser: root
 mysqlRootPassword: changeme
 
 # Path to the docker secret file inside the container.
-otrsSecretsFile: ""
+# otrsSecretsFile: ""
 
 #####################################
 # OTRS Configuration
@@ -36,7 +36,7 @@ otrsSecretsFile: ""
 #   - restore : Restores the backup specified by OTRS_BACKUP_DATE environment variable. Please check the README file for details.
 otrsInstall: no
 
-otrsBackupDate: ""
+# otrsBackupDate: ""
 
 # On backup restore it drops the otrs database it if already exists (by default the container will fail if the database already exists).
 otrsDropDatabase: no
@@ -73,7 +73,7 @@ otrsLanguage: en
 otrsTimezone: UTC
 
 # Sets the starting point for the ticket counter.
-otrsTicketCounter: ""
+# otrsTicketCounter: ""
 
 # Sets the ticket number generator, possible values are : DateChecksum, Date, AutoIncrement or Random.
 otrsNumberGenerator: DateChecksum

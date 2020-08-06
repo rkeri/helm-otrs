@@ -1,18 +1,17 @@
-- apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      kompose.version: 1.21.0 (992df58d8)
-    creationTimestamp: null
-    labels:
-      io.kompose.service: otrs
-    name: otrs
-  spec:
-    ports:
-    - name: "80"
-      port: 80
-      targetPort: 80
-    selector:
-      io.kompose.service: otrs
-  status:
-    loadBalancer: {}
+apiVersion: v1
+kind: Service
+metadata:
+  name: otrs
+  labels:
+    io.kompose.service: otrs
+  annotations:
+    kompose.version: 1.21.0 (992df58d8)
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: 80
+  selector:
+    io.kompose.service: otrs
+status:
+  loadBalancer: {}

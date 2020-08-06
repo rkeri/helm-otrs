@@ -3,12 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: otrs-skinsClaim
-  name: otrs-skinsClaim
+    io.kompose.service: otrs-skinsclaim
+  name: otrs-skinsclaim
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: {{ Values.skinsClaim }}
+      storage: {{ .Values.skinsClaim }}
 status: {}

@@ -3,7 +3,7 @@ data:
 # Database Configuration
   OTRS_DB_NAME: {{ .Values.otrsDbName }}
   OTRS_DB_HOST: {{ .Values.otrsDbHost }}
-  OTRS_DB_PORT: "{{ .Values.otrsDbPort }}"
+  OTRS_DB_PORT: {{ .Values.otrsDbPort }}
   OTRS_DB_USER: {{ .Values.otrsDbUser }}
   OTRS_DB_PASSWORD: {{ .Values.otrsDbPassword }}
   MYSQL_ROOT_USER: {{ .Values.mysqlRootUser }}

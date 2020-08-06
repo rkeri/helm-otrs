@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: otrs-KernelClaim
-  name: otrs-KernelClaim
+    io.kompose.service: otrs-kernelclaim
+  name: otrs-kernelclaim
 spec:
   accessModes:
   - ReadWriteOnce

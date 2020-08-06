@@ -3,12 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: otrs-backupsClaim
-  name: otrs-backupsClaim
+    io.kompose.service: otrs-backupsclaim
+  name: otrs-backupsclaim
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: {{ Values.backupsClaim }}
+      storage: {{ .Values.backupsClaim }}
 status: {}
