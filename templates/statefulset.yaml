@@ -28,180 +28,75 @@ spec:
       - name: otrs
         env:
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            configMapKeyRef:
-              key: MYSQL_ROOT_PASSWORD
-              name: env
+          value: "{{ .Values.mysqlRootPassword }}"
         - name: MYSQL_ROOT_USER
-          valueFrom:
-            configMapKeyRef:
-              key: MYSQL_ROOT_USER
-              name: env
+          value: "{{ .Values.mysqlRootUser }}"
         - name: OTRS_ARTICLE_STORAGE_TYPE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_ARTICLE_STORAGE_TYPE
-              name: env
+          value: "{{ .Values.articleStorageType }}"
         - name: OTRS_BACKUP_COMRESSION
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_BACKUP_COMRESSION
-              name: env
+          value: "{{ .Values.otrsBackupCompression }}"
         - name: OTRS_BACKUP_DATE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_BACKUP_DATE
-              name: env
+          value: "{{ .Values.otrsBackupDate }}"
         - name: OTRS_BACKUP_ROTATION
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_BACKUP_ROTATION
-              name: env
+          value: "{{ .Values.otrsBackupRotation }}"
         - name: OTRS_BACKUP_TIME
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_BACKUP_TIME
-              name: env
+          value: "{{ .Values.otrsBackupTime }}"
         - name: OTRS_BACKUP_TYPE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_BACKUP_TYPE
-              name: env
+          value: "{{ .Values.otrsBackupType }}"
         - name: OTRS_CRON_BACKUP_SCRIPT
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_CRON_BACKUP_SCRIPT
-              name: env
+          value: "{{ .Values.otrsCronBackupScript }}"
         - name: OTRS_DB_HOST
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_DB_HOST
-              name: env
+          value: "{{ .Values.otrsDbHost }}"
         - name: OTRS_DB_NAME
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_DB_NAME
-              name: env
+          value: "{{ .Values.otrsDbName }}"
         - name: OTRS_DB_PASSWORD
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_DB_PASSWORD
-              name: env
+          value: "{{ .Values.otrsDbPassword }}"
         - name: OTRS_DB_PORT
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_DB_PORT
-              name: env
+          value: "{{ .Values.otrsDbPort }}"
         - name: OTRS_DB_USER
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_DB_USER
-              name: env
+          value: "{{ .Values.otrsDbUser }}"
         - name: OTRS_DEBUG
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_DEBUG
-              name: env
+          value: "{{ .Values.otrsDebug }}"
         - name: OTRS_DROP_DATABASE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_DROP_DATABASE
-              name: env
+          value: "{{ .Values.otrsDropDatabase }}"
         - name: OTRS_HOSTNAME
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_HOSTNAME
-              name: env
+          value: "{{ .Values.otrsHostname }}"
         - name: OTRS_INSTALL
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_INSTALL
-              name: env
+          value: "{{ .Values.otrsInstall }}"
         - name: OTRS_LANGUAGE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_LANGUAGE
-              name: env
+          value: "{{ .Values.otrsLanguage }}"
         - name: OTRS_NUMBER_GENERATOR
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_NUMBER_GENERATOR
-              name: env
+          value: "{{ .Values.otrsNumberGenerator }}"
         - name: OTRS_ROOT_PASSWORD
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_ROOT_PASSWORD
-              name: env
+          value: "{{ .Values.otrsRootPassword }}"
         - name: OTRS_SECRETS_FILE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_SECRETS_FILE
-              name: env
+          value: "{{ .Values.otrsSecretsFile }}"
         - name: OTRS_SENDMAIL_MODULE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_SENDMAIL_MODULE
-              name: env
+          value: "{{ .Values.otrsSendmailModule }}"
         - name: OTRS_SET_PERMISSIONS
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_SET_PERMISSIONS
-              name: env
+          value: "{{ .Values.otrsSetPermissions }}"
         - name: OTRS_SMTP_PASSWORD
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_SMTP_PASSWORD
-              name: env
+          value: "{{ .Values.otrsSmtpPassword }}"
         - name: OTRS_SMTP_PORT
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_SMTP_PORT
-              name: env
+          value: "{{ .Values.otrsSmtpPort }}"
         - name: OTRS_SMTP_SERVER
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_SMTP_SERVER
-              name: env
+          value: "{{ .Values.otrsSmtpServer }}"
         - name: OTRS_SMTP_USERNAME
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_SMTP_USERNAME
-              name: env
+          value: "{{ .Values.otrsSmtpUsername }}"
         - name: OTRS_TICKET_COUNTER
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_TICKET_COUNTER
-              name: env
+          value: "{{ .Values.otrsTicketCounter }}"
         - name: OTRS_TIMEZONE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_TIMEZONE
-              name: env
+          value: "{{ .Values.otrsTimezone }}"
         - name: OTRS_UPGRADE
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_UPGRADE
-              name: env
+          value: "{{ .Values.otrsUpgrade }}"
         - name: OTRS_UPGRADE_BACKUP
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_UPGRADE_BACKUP
-              name: env
+          value: "{{ .Values.otrsUpgradeBackup }}"
         - name: OTRS_UPGRADE_XML_FILES
-          valueFrom:
-            configMapKeyRef:
-              key: OTRS_UPGRADE_XML_FILES
-              name: env
+          value: "{{ .Values.otrsUpgradeXmlFiles }}"
         - name: SHOW_OTRS_LOGO
-          valueFrom:
-            configMapKeyRef:
-              key: SHOW_OTRS_LOGO
-              name: env
+          value: "{{ .Values.showOtrsLogo }}"
         - name: TZ
-          valueFrom:
-            configMapKeyRef:
-              key: TZ
-              name: env
+          value: {{ .Values.TZ }}
         image: juanluisbaptiste/otrs:6.0.28
         imagePullPolicy: ""
         ports:
@@ -209,37 +104,37 @@ spec:
         resources: {}
         volumeMounts:
         - mountPath: /opt/otrs/Kernel
-          name: otrs-Kernel
+          name: otrs-kernelclaim
           subPath: Kernel
         - mountPath: /opt/otrs/var/httpd/htdocs/skins/
-          name: otrs-skins
+          name: otrs-skinsclaim
         - mountPath: /var/otrs/backups
-          name: otrs-backups
+          name: otrs-backupsclaim
         - mountPath: /opt/otrs/addons
-          name: otrs-addons
+          name: otrs-addonsclaim
         - mountPath: /opt/otrs/db_upgrade
-          name: otrs-db_upgrade
+          name: otrs-dbupgradeclaim
         # - mountPath: /etc/localtime
         #   name: otrs-hostpath0
         #   readOnly: true
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-      - name: otrs-Kernel
+      - name: otrs-kernelclaim
         persistentVolumeClaim:
-          claimName: otrs-KernelClaim
-      - name: otrs-skins
+          claimName: otrs-kernelclaim
+      - name: otrs-skinsclaim
         persistentVolumeClaim:
-          claimName: otrs-skinsClaim
-      - name: otrs-backups
+          claimName: otrs-skinsclaim
+      - name: otrs-backupsclaim
         persistentVolumeClaim:
-          claimName: otrs-backupsClaim
-      - name: otrs-addons
+          claimName: otrs-backupsclaim
+      - name: otrs-addonsclaim
         persistentVolumeClaim:
-          claimName: otrs-addonsClaim
-      - name: otrs-db_upgrade
+          claimName: otrs-addonsclaim
+      - name: otrs-dbupgradeclaim
         persistentVolumeClaim:
-          claimName: otrs-db_upgradeClaim
+          claimName: otrs-dbupgradeclaim
       # - name: otrs-hostpath0
       #   hostPath:
       #     path: /etc/localtime
