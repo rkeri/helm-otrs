@@ -89,7 +89,7 @@ showOtrsLogo: "yes"
 otrsDebug: "no"
 
 #Timezone /experimental/
-TZ: Etc/UTC
+# TZ: Etc/UTC
 
 ###### Major Version Upgrade #######
 #####################################

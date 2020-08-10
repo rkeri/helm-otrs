@@ -1,4 +1,1 @@
-# helm-otrs
-Helm chart for OTRS Community Edition
-
-*CURRENTLY IN DEVELOPMENT*
+# OTRS Community edition 3in1

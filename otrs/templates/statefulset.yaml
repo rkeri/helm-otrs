@@ -95,8 +95,8 @@ spec:
           value: "{{ .Values.otrsUpgradeXmlFiles }}"
         - name: SHOW_OTRS_LOGO
           value: "{{ .Values.showOtrsLogo }}"
-        - name: TZ
-          value: {{ .Values.TZ }}
+        # - name: TZ
+        #   value: {{ .Values.TZ }}
         image: juanluisbaptiste/otrs:6.0.28
         imagePullPolicy: ""
         ports:
