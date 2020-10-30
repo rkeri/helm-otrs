@@ -78,11 +78,11 @@ secondary:
   tolerations: []
   resources:
     limits: {}
-    #   memory: 256Mi
-    #   cpu: 100m
+      memory: 256Mi
+      cpu: 100m
     requests: {}
-    #   memory: 256Mi
-    #   cpu: 100m
+      memory: 256Mi
+      cpu: 100m
   persistence:
     enabled: true
     accessModes:
