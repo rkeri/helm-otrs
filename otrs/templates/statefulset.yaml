@@ -8,14 +8,11 @@ metadata:
     io.kompose.service: otrs
   name: otrs
 spec:
-  # replicas: 1
   selector:
     matchLabels:
       io.kompose.service: otrs
   serviceName: "otrs"
   replicas: 1
-  # strategy:
-  #   type: Recreate
   template:
     metadata:
       annotations:
@@ -26,79 +23,11 @@ spec:
     spec:
       containers:
       - name: otrs
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "{{ .Values.mysqlRootPassword }}"
-        - name: MYSQL_ROOT_USER
-          value: "{{ .Values.mysqlRootUser }}"
-        - name: OTRS_ARTICLE_STORAGE_TYPE
-          value: "{{ .Values.articleStorageType }}"
-        - name: OTRS_BACKUP_COMRESSION
-          value: "{{ .Values.otrsBackupCompression }}"
-        - name: OTRS_BACKUP_DATE
-          value: "{{ .Values.otrsBackupDate }}"
-        - name: OTRS_BACKUP_ROTATION
-          value: "{{ .Values.otrsBackupRotation }}"
-        - name: OTRS_BACKUP_TIME
-          value: "{{ .Values.otrsBackupTime }}"
-        - name: OTRS_BACKUP_TYPE
-          value: "{{ .Values.otrsBackupType }}"
-        - name: OTRS_CRON_BACKUP_SCRIPT
-          value: "{{ .Values.otrsCronBackupScript }}"
-        - name: OTRS_DB_HOST
-          value: "{{ .Values.otrsDbHost }}"
-        - name: OTRS_DB_NAME
-          value: "{{ .Values.otrsDbName }}"
-        - name: OTRS_DB_PASSWORD
-          value: "{{ .Values.otrsDbPassword }}"
-        - name: OTRS_DB_PORT
-          value: "{{ .Values.otrsDbPort }}"
-        - name: OTRS_DB_USER
-          value: "{{ .Values.otrsDbUser }}"
-        - name: OTRS_DEBUG
-          value: "{{ .Values.otrsDebug }}"
-        - name: OTRS_DROP_DATABASE
-          value: "{{ .Values.otrsDropDatabase }}"
-        - name: OTRS_HOSTNAME
-          value: "{{ .Values.otrsHostname }}"
-        - name: OTRS_INSTALL
-          value: "{{ .Values.otrsInstall }}"
-        - name: OTRS_LANGUAGE
-          value: "{{ .Values.otrsLanguage }}"
-        - name: OTRS_NUMBER_GENERATOR
-          value: "{{ .Values.otrsNumberGenerator }}"
-        - name: OTRS_ROOT_PASSWORD
-          value: "{{ .Values.otrsRootPassword }}"
-        - name: OTRS_SECRETS_FILE
-          value: "{{ .Values.otrsSecretsFile }}"
-        - name: OTRS_SENDMAIL_MODULE
-          value: "{{ .Values.otrsSendmailModule }}"
-        - name: OTRS_SET_PERMISSIONS
-          value: "{{ .Values.otrsSetPermissions }}"
-        - name: OTRS_SMTP_PASSWORD
-          value: "{{ .Values.otrsSmtpPassword }}"
-        - name: OTRS_SMTP_PORT
-          value: "{{ .Values.otrsSmtpPort }}"
-        - name: OTRS_SMTP_SERVER
-          value: "{{ .Values.otrsSmtpServer }}"
-        - name: OTRS_SMTP_USERNAME
-          value: "{{ .Values.otrsSmtpUsername }}"
-        - name: OTRS_TICKET_COUNTER
-          value: "{{ .Values.otrsTicketCounter }}"
-        - name: OTRS_TIMEZONE
-          value: "{{ .Values.otrsTimezone }}"
-        - name: OTRS_UPGRADE
-          value: "{{ .Values.otrsUpgrade }}"
-        - name: OTRS_UPGRADE_BACKUP
-          value: "{{ .Values.otrsUpgradeBackup }}"
-        - name: OTRS_UPGRADE_XML_FILES
-          value: "{{ .Values.otrsUpgradeXmlFiles }}"
-        - name: SHOW_OTRS_LOGO
-          value: "{{ .Values.showOtrsLogo }}"
-        # - name: TZ
-        #   value: {{ .Values.TZ }}
-        image: juanluisbaptiste/otrs:6.0.28
-        imagePullPolicy: ""
+        envFrom:
+          - configMapRef:
+              name: configmap-otrs
+        image: {{ .Values.image }}
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         resources: {}
@@ -114,9 +43,6 @@ spec:
           name: otrs-addonsclaim
         - mountPath: /opt/otrs/db_upgrade
           name: otrs-dbupgradeclaim
-        # - mountPath: /etc/localtime
-        #   name: otrs-hostpath0
-        #   readOnly: true
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
@@ -135,13 +61,5 @@ spec:
       - name: otrs-dbupgradeclaim
         persistentVolumeClaim:
           claimName: otrs-dbupgradeclaim
-      # - name: otrs-hostpath0
-      #   hostPath:
-      #     path: /etc/localtime
-      #     type: File
-      # - hostPath:
-      #     path: /etc/localtime
-      #     type: File
-      #   name: otrs-hostpath0
 status:
   replicas: 1
